@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/claude_code_manager/__init__.py
+src/claude_code_manager/cli.py
+src/claude_code_manager/config.py
+src/claude_code_manager/core.py
+src/claude_code_manager/environment.py
+src/claude_code_manager/utils.py
+src/claude_code_manager.egg-info/PKG-INFO
+src/claude_code_manager.egg-info/SOURCES.txt
+src/claude_code_manager.egg-info/dependency_links.txt
+src/claude_code_manager.egg-info/entry_points.txt
+src/claude_code_manager.egg-info/requires.txt
+src/claude_code_manager.egg-info/top_level.txt
