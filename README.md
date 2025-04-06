@@ -19,6 +19,9 @@ pip install claude-code-manager
 
 ## Usage
 
+### Installation
+- Install as an editable python package.
+- 
 ### Available Commands
 
 - `ccm setup`: Configure a new environment type
