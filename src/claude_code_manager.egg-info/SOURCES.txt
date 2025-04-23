@@ -1,5 +1,6 @@
 README.md
 pyproject.toml
+setup.py
 src/claude_code_manager/__init__.py
 src/claude_code_manager/cli.py
 src/claude_code_manager/config.py
