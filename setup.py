@@ -11,13 +11,14 @@ setup(
     url="https://github.com/yourusername/claude-code-manager",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    python_requires=">=3.8",
+    python_requires=">=3.10",
     install_requires=[
-        "inquirer>=3.1.0",
-        "rich>=13.0.0",
-        "gitpython>=3.1.30",
-        "pyyaml>=6.0",
-        "click>=8.1.3",
+        "inquirer",
+        "rich",
+        "gitpython",
+        "pyyaml",
+        "click",
+        "fastmcp",
     ],
     entry_points={
         "console_scripts": [

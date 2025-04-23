@@ -157,6 +157,7 @@ class ClaudeCodeManager:
             True if successful, False otherwise
         """
         # Check if environment exists
+        print("GOT HERE")
         env_config = self.config_manager.get_environment_config(env_name)
         if not env_config:
             print_error(f"Environment '{env_name}' does not exist")
@@ -164,10 +165,11 @@ class ClaudeCodeManager:
 
         # Scaffold environment
         print_info(f"Scaffolding environment '{env_name}'...")
+        print("GOT HERE 2")
         instance_dir = with_spinner(
             f"Scaffolding environment '{env_name}'...", self.env_manager.scaffold_environment, env_name, work_dir
         )
-
+        print("GOT HERE 3")
         if not instance_dir:
             print_error(f"Failed to scaffold environment '{env_name}'")
             return False

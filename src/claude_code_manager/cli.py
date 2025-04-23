@@ -27,64 +27,71 @@ def cli():
 
 
 @cli.command("setup")
-@click.argument("env_name", required=False)
+@click.option("--env-name", "-e", help="The name of the environment to configure")
 def setup(env_name: Optional[str] = None):
     """
     Configure a new environment type.
 
-    ENV_NAME is an optional name for the environment.
+    Parameters:
+        --env-name: The name of the environment to configure.
     """
     manager = ClaudeCodeManager()
     manager.setup_environment(env_name)
 
 
 @cli.command("scaffold")
-@click.argument("env_name", required=True)
+@click.option("--env-name", "-e", help="The name of the environment to scaffold")
 @click.option("--dir", "-d", help="Working directory for the environment")
 def scaffold(env_name: str, dir: Optional[str] = None):
     """
     Create a new environment instance.
 
-    ENV_NAME is the name of the environment to scaffold.
+    Parameters:
+        --env-name: The name of the environment to scaffold.
+        --dir: The working directory for the environment.
     """
     manager = ClaudeCodeManager()
     manager.scaffold_environment(env_name, dir)
 
 
 @cli.command("choose")
-@click.argument("env_name", required=False)
+@click.option("--env-name", "-e", help="The name of the environment to filter instances")
 @click.option("--instance", "-i", help="Instance ID to select")
 def choose(env_name: Optional[str] = None, instance: Optional[str] = None):
     """
     Select an environment instance to work with.
 
-    ENV_NAME is an optional environment name to filter instances.
+    Parameters:
+        --env-name: The name of the environment to filter instances.
+        --instance: The instance ID to select.
     """
     manager = ClaudeCodeManager()
     manager.choose_environment(env_name, instance)
 
 
 @cli.command("del")
-@click.argument("instance_id", required=False)
-@click.option("--env", "-e", help="Environment name to filter instances")
+@click.option("--instance-id", "-i", help="The instance ID to delete")
+@click.option("--env", "-e", help="The environment name to filter instances")
 def delete(instance_id: Optional[str] = None, env: Optional[str] = None):
     """
     Remove environment instances.
 
-    INSTANCE_ID is an optional instance ID to delete.
-    If not provided, a selection menu will be shown.
+    Parameters:
+        --instance-id: The instance ID to delete.
+        --env: The environment name to filter instances.
     """
     manager = ClaudeCodeManager()
     manager.delete_environment_instance(instance_id, env)
 
 
 @cli.command("list")
-@click.argument("env_name", required=False)
+@click.option("--env-name", "-e", help="The environment name to filter instances")
 def list_instances(env_name: Optional[str] = None):
     """
     Show existing environment instances.
 
-    ENV_NAME is an optional environment name to filter instances.
+    Parameters:
+        --env-name: The environment name to filter instances.
     """
     manager = ClaudeCodeManager()
     manager.list_instances(env_name)
@@ -97,6 +104,14 @@ def list_environments():
     """
     manager = ClaudeCodeManager()
     manager.list_env_types()
+
+@cli.command("mcp")
+def mcp():
+    """
+    Start the MCP server.
+    """
+    from .mcp.server import main
+    main()
 
 
 def main():
